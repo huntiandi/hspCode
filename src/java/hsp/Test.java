@@ -8,36 +8,23 @@ package hsp;
  */
 public class Test {
     public static void main (String[] args){
-    int i = 1;
-    //i = i++;
-    int j = 0;
-    double x = 5.0 / 9;
-        System.out.println(i+"+"+j+"-"+x);
-        for (int k = 1; k < 10; k++) {
-            if (k<5) {
-                for (int z = 1; z < 5 - k; z++) {
+        for (int i = 0; i < 8; i++) {
+            if (i<4) {
+                for (int j = 0; j < 5 - i; j++) {
                     System.out.print(" ");
                 }
-                for (int l = 1; l <= 2 * k - 1; l++) {
-
-                    if (l == 1 || l == 2 * k - 1) {
-                        System.out.print("*");
-                    } else {
-                        System.out.print(" ");
-                    }
+                for (int j = 0; j < 2 * i + 1; j++) {
+                    System.out.print("*");
                 }
-                System.out.print("\n");
+                System.out.println("");
             }else {
-                for (int z = 1; z < k-5; z++) {
+                for (int j = 0; j <i-2; j++) {
                     System.out.print(" ");
                 }
-                for (int l = 1; l <=  k; l++) {
-
-
-                        System.out.print("*");
-
+                for (int j = 0; j < 16-(2*i+1); j++) {
+                    System.out.print("*");
                 }
-                System.out.print("\n");
+                System.out.println("");
             }
         }
     }
