@@ -10,8 +10,8 @@ public class Bubble {
     public static void main(String[] args) {
         int[] array = {11,1, 2, 9, 3, 8, 4,0};
         int temp = 0;
-        for (int i = 0; i < array.length - 1; i++) {
-            for (int j = 0; j < array.length - 1 - i; j++) {
+        for (int i = 0; i < array.length - 1; i++) {//排序轮数
+            for (int j = 0; j < array.length - 1 - i; j++) {//每一轮排序次数
                 if (array[j] > array[j + 1]) {
                     temp = array[j];
                     array[j] = array[j + 1];
