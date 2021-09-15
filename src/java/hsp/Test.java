@@ -1,4 +1,4 @@
-package hsp;
+package java.hsp;
 
 /**
  * @ProjectName: work
