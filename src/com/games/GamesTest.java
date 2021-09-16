@@ -1,4 +1,4 @@
-package java.games;
+package com.games;
 
 /**
  * @ProjectName: work
