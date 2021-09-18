@@ -14,8 +14,18 @@ public class Test3 {
             System.out.print(array[i]);
         }
 
+        String xxx = "xxx";
+        update(xxx);
+        System.out.println(xxx);
+
+        Person person = new Person();
+        Person person1 = new Person();
+        System.out.println(person.equals(person1));
     }
 
+    public static void update(String string){
+        string = "qqq";
+    }
     public static void n (int[] names){
         names[0] = 0;
     }
