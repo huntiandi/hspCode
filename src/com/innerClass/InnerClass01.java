@@ -1,11 +1,9 @@
 package com.innerClass;
 
-import jdk.nashorn.internal.ir.CallNode;
-
 /**
  * @ProjectName: com.innerClass
  * @author: ZhsngBiBo
- * @description: 内部类
+ * @description: 内部类-局部内部类
  * @data: 2021/9/22
  */
 public class InnerClass01 {
