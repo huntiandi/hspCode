@@ -1,9 +1,7 @@
-package com.single;
-
-import jdk.nashorn.internal.ir.CallNode;
+package com.design.single;
 
 /**
- * @ProjectName: com.single
+ * @ProjectName: com.design.single
  * @author: ZhsngBiBo
  * @description: 单例模式-饿汉
  * @data: 2021/9/18

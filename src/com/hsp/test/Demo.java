@@ -1,4 +1,4 @@
-package com.hsp;
+package com.hsp.test;
 
 public class Demo {
   class Super {

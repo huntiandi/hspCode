@@ -1,7 +1,7 @@
-package com.single;
+package com.design.single;
 
 /**
- * @ProjectName: com.single
+ * @ProjectName: com.design.single
  * @author: ZhsngBiBo
  * @description: 单例模式-懒汉
  *               饿汉会发生创建了但没用造成资源浪费

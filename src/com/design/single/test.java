@@ -1,9 +1,9 @@
-package com.single;
+package com.design.single;
 
 /**
- * @ProjectName: com.single
+ * @ProjectName: com.design.single
  * @author: ZhsngBiBo
- * @description:
+ * @description: 单例模式练习
  * @data: 2021/9/18
  */
 public class test {
