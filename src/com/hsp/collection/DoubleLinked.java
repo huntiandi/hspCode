@@ -12,7 +12,7 @@ public class DoubleLinked {
         Nodes jack = new Nodes("jack");
         table[2] = jack;
         Nodes tom = new Nodes("tom");
-        jack.next = tom;//当数组大小超过64链表超过16就会变成树
+        jack.next = tom;//当数组大小超过64链表到8就会变成树
     }
 }
 class Nodes{
