@@ -3,7 +3,7 @@ package com.threads;
 /**
  * @ProjectName: com.threads
  * @author: ZhangBiBo
- * @description: 线程测试
+ * @description: 线程测试-继承Thread
  * @data: 2021/10/8
  */
 public class Thread_ {
