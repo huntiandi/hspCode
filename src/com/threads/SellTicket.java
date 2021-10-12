@@ -1,5 +1,7 @@
 package com.threads;
 
+import javafx.beans.binding.ObjectExpression;
+
 /**
  * @ProjectName: com.threads
  * @author: ZhangBiBo
@@ -15,19 +17,19 @@ public class SellTicket {
 //        thread0.start();
 //        thread1.start();
 //        thread2.start();
-        Ticket2 ticket2 = new Ticket2();
-        Thread thread0 = new Thread(ticket2,"一号窗");
-        Thread thread1 = new Thread(ticket2,"二号窗");
-        Thread thread2 = new Thread(ticket2,"三号窗");
+       /* Ticket2 ticket2 = new Ticket2();
+        Thread thread0 = new Thread(ticket2);
+        Thread thread1 = new Thread(ticket2);
+        Thread thread2 = new Thread(ticket2);
         thread0.start();
         thread1.start();
-        thread2.start();
-     /*   Ticket3 ticket1 = new Ticket3();
+        thread2.start();*/
+        Ticket3 ticket1 = new Ticket3();
         Ticket3 ticket2 = new Ticket3();
         Ticket3 ticket3 = new Ticket3();
         ticket1.start();
         ticket2.start();
-        ticket3.start();*/
+        ticket3.start();
     }
 }
 class Ticket1 implements Runnable{
@@ -71,14 +73,14 @@ class Ticket2 implements Runnable{
         }
     }
 }
-class Ticket3 extends Thread{//使用继承Thread类时,要使用当前类来当锁，不然每次new出来的对象就没有意义了
+class Ticket3 extends Thread{//继承了Thread类的话，锁对象必须要是当前类(Ticket3),或者是一个static的静态对象
     public static int i = 40;
 
-    private  boolean pool =true;
+    static Object obj = new Object();
+    private boolean pool =true;
     //同步机制，解决超卖问题
-    public void sell(){
-
-        synchronized (Ticket3.class) {
+    public  void sell(){
+        synchronized (obj){
             if (i == 0) {
                 pool = false;
                 System.out.println("票卖光了");

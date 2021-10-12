@@ -12,6 +12,9 @@ public class Thread_ {
         dog.start();//启动线程-最后执行dog的run方法
         //此时主线程并不会阻塞，会继续；如果直接dog.run(),就会等run跑完，再跑下面的for
         for (int i = 0; i < 6; i++) {
+            if (i==1){
+                dog.join();//插队，必须等dog走完
+            }
             System.out.println(i+Thread.currentThread().getName());
             Thread.sleep(1000);
         }
