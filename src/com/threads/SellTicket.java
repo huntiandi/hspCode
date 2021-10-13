@@ -2,6 +2,8 @@ package com.threads;
 
 import javafx.beans.binding.ObjectExpression;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * @ProjectName: com.threads
  * @author: ZhangBiBo
@@ -24,12 +26,20 @@ public class SellTicket {
         thread0.start();
         thread1.start();
         thread2.start();*/
-        Ticket3 ticket1 = new Ticket3();
+       /* Ticket3 ticket1 = new Ticket3();
         Ticket3 ticket2 = new Ticket3();
         Ticket3 ticket3 = new Ticket3();
         ticket1.start();
         ticket2.start();
-        ticket3.start();
+        ticket3.start();*/
+
+        Ticket4 ticket1 = new Ticket4();
+        Thread thread0 = new Thread(ticket1,"窗口一");
+        Thread thread1 = new Thread(ticket1,"窗口2");
+        Thread thread2 = new Thread(ticket1,"窗口叁");
+        thread0.start();
+        thread1.start();
+        thread2.start();
     }
 }
 class Ticket1 implements Runnable{
@@ -94,6 +104,39 @@ class Ticket3 extends Thread{//继承了Thread类的话，锁对象必须要是�
             }
         }
     }
+    @Override
+    public void run() {
+        while (pool) {
+            sell();
+        }
+    }
+}
+class Ticket4 implements Runnable{
+    public static int i = 40;
+
+    private boolean pool =true;
+    private final ReentrantLock Lock = new ReentrantLock();
+    //lock 解决超卖问题
+    public  void sell(){
+
+        Lock.lock();
+        try {
+            if (i==0){
+                pool = false;
+                System.out.println("票卖光了");
+                return;
+            }
+            System.out.println(Thread.currentThread().getName() + " 卖出一张票," + " 剩余:" + --i+"张");
+            try {
+                Thread.sleep(20);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }finally {
+            Lock.unlock();
+        }
+        }
+
     @Override
     public void run() {
         while (pool) {
