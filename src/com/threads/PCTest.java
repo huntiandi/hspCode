@@ -1,5 +1,7 @@
 package com.threads;
 
+import java.util.concurrent.ExecutorService;
+
 /**
  * @ProjectName: hspCode
  * @author: ZhangBiBo
@@ -16,11 +18,11 @@ public class PCTest {
 }
 //缓冲区
 class Buffer{
-    Chicken [] chickens = new Chicken[10];
+    Chicken[] chickens = new Chicken[10];
     int count = 0;
     //如果是空的将产品放入
     public synchronized void push(Chicken chicken){
-        if (count == chickens.length){
+        if (count == chickens.length){//容器里面已经空了
             //通知消费者等一会儿
             try {
                 this.wait();
@@ -31,20 +33,31 @@ class Buffer{
         chickens[count] = chicken;
         count++;
 
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         //通知消费者有货了
         this.notifyAll();
     }
     //如果是有货就进去拿
     public synchronized Chicken pop(){
-        if (0 == count){
+        if (count == 0){
             try {
                 this.wait();
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
-        Chicken chicken = chickens[count];
+
         count--;
+        Chicken chicken = chickens[count];
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         this.notifyAll();
         return chicken;
     }
