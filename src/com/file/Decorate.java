@@ -36,6 +36,7 @@ class Buffered extends Decorate{
         decorate.readFile();
     }
 
+    //扩展，让方法更加灵活
     public void readFile(int x) {
         for (int i = 0; i < x; i++) {
             decorate.readFile();
