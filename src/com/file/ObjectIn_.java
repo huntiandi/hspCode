@@ -16,7 +16,7 @@ public class ObjectIn_ {
         ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream(path));
         oos.writeInt(100);
         oos.writeUTF("张洋大帅逼");
-        oos.writeObject(new Dog(10,"当当"));
+        oos.writeObject(new Dog(10,"当当","白色"));
         oos.close();
     }
 
@@ -26,9 +26,9 @@ public class ObjectIn_ {
         ObjectInputStream ois = new ObjectInputStream(new FileInputStream(path2));
         System.out.println(ois.readInt());
         System.out.println(ois.readUTF());
-        System.out.println(ois.readObject());
         Dog dog = (Dog) ois.readObject();
-        dog.getAge();
+        System.out.println(dog);
+        System.out.println(dog.getAge());
         ois.close();
     }
 }
