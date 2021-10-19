@@ -18,10 +18,23 @@ public class Tiger {
         this.name = name;
     }
 
-    public void hi(){
-        System.out.println("你好"+name);
+    private Tiger(String name, int age) {
+        this.name = name;
+        this.age = age;
+    }
+
+    public void hi(String c){
+        System.out.println("你好"+name+c);
     }
     public void cry(String c){
         System.out.println(name+c);
+    }
+
+    @Override
+    public String toString() {
+        return "Tiger{" +
+                "name='" + name + '\'' +
+                ", age=" + age +
+                '}';
     }
 }
