@@ -4,6 +4,9 @@ import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
@@ -52,5 +55,29 @@ public class StreamTest {
     public void test2(){
         //方式三，通过stream本身创建
         Stream<Integer> integerStream = Stream.of(1, 2, 3, 4, 5, 6);
+    }
+
+    //将字符串转化为字节存进list返沪stream
+    public static Stream<Character> stringToStream(String str){
+        ArrayList<Character> list = new ArrayList<>();
+        for (Character c:str.toCharArray()) {
+            list.add(c);
+        }
+        return list.stream();
+
+    }
+
+    @Test
+    public void test3(){
+        //映射
+        List<String> lists = Arrays.asList("aa", "bb", "cc");
+        lists.stream().map(str -> str+"q").forEach(System.out::print);
+        System.out.println();
+//        Stream<Character> characterStream = lists.stream().flatMap(str -> stringToStream(str));
+        Stream<Character> characterStream = lists.stream().flatMap(StreamTest::stringToStream);
+        characterStream.forEach(System.out::println);
+        //收集
+        List<String> collect = lists.stream().filter(str -> str != "aa").collect(Collectors.toList());
+        collect.forEach(System.out::print);
     }
 }
