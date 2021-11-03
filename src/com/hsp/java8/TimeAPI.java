@@ -13,5 +13,7 @@ public class TimeAPI {
     public static void main(String[] args) {
         LocalDate now = LocalDate.now();
         System.out.println(now);
+        LocalTime now1 = LocalTime.now();
+        System.out.println(now1);
     }
 }
