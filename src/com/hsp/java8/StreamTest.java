@@ -54,7 +54,9 @@ public class StreamTest {
     @Test
     public void test2(){
         //方式三，通过stream本身创建
-        Stream<Integer> integerStream = Stream.of(1, 2, 3, 4, 5, 6);
+        Stream<Integer> integerStream = Stream.of(1, 0, 5, -9, 51, 16);
+        //自然排序
+        integerStream.sorted().forEach(integer -> System.out.print(integer+" "));
     }
 
     //将字符串转化为字节存进list返沪stream
