@@ -38,6 +38,10 @@ public class MapExercise {
             }
         }
 
+        for (Map.Entry<Integer, Staff> entry : map.entrySet()) {
+            System.out.println(entry.getKey()+"---"+entry.getValue());
+        }
+
     }
 }
 class Staff {
