@@ -27,7 +27,7 @@ public class HashSet_ {
         strings.add("java");
         strings.add("PHP");
         strings.add("java");
-
+        System.out.println(strings);
         /*
         * hashset扩容机制,
         * 只要加入一个节点size就会加一，不是必须要在table表第一个
