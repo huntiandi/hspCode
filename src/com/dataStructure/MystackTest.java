@@ -2,10 +2,7 @@ package com.dataStructure;
 
 import com.dataStructure.stack.MyQueue;
 import com.dataStructure.stack.Mystack;
-import jdk.nashorn.internal.ir.CallNode;
 import org.junit.jupiter.api.Test;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 /**
  * @ProjectName: com.dataStructure
