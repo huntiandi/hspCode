@@ -36,6 +36,11 @@ class Threads_ implements Runnable {
         if (pool) {
             synchronized (obj1) {//如果为TRUE就会获得o1锁，之后尝试获取O2锁
                 System.out.println("进入1");
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 synchronized (obj2) {
                     System.out.println("进入2");
                 }
@@ -43,6 +48,11 @@ class Threads_ implements Runnable {
         } else {
             synchronized (obj2) {
                 System.out.println("进入3");
+                try {
+                    Thread.sleep(1500);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 synchronized (obj1) {
                     System.out.println("进入4");
                 }
