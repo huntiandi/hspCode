@@ -28,16 +28,20 @@ class Dog{
     private String name;
 
     public static int num = 88;
-    private static Dog dog;
+    //防止指令重排序
+    private volatile static Dog dog;
 
     private Dog(String name) {
         System.out.println("構造器被調用");
         this.name = name;
     }
 
-    public static Dog getInstance(){
+    public static  Dog getInstance(){
         if (dog == null){//如果没有创建dog对象
-          dog = new Dog("当当");
+            //保证线程安全
+            synchronized(Dog.class) {
+                dog = new Dog("当当");
+            }
         }
         return dog;
     }
