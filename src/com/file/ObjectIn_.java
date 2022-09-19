@@ -2,7 +2,9 @@ package com.file;
 
 import org.junit.jupiter.api.Test;
 
+import javax.swing.*;
 import java.io.*;
+import java.util.Date;
 
 /**
  * @ProjectName: hspCode
@@ -52,7 +54,8 @@ class Test08 {
             Account account1 = (Account) ois.readObject();
             Account account2 = (Account) ois.readObject();
             //因为父类没有实现Serializable接口，所以反序列化就是新建了，那么就是默认值了
-            System.out.println(account1.getPassword()+"---"+account1.getId());
+            //如果是静态变量，首先不能使用对象直接get或者set要使用类.get/set；那么静态变量永远是类中那个值，所以序列化前后都是同一个值
+            System.out.println(account1.getPassword()+"---"+account1.getId()+Account.getSex());
             System.out.println(account2.getPassword()+"---"+account2.getId());
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
