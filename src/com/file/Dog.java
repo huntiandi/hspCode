@@ -2,7 +2,7 @@ package com.file;
 
 import java.io.Serializable;
 
-class Dog implements Serializable {//必须实现serializable接口
+public class Dog implements Serializable {//必须实现serializable接口
     private int age;
     private String name;
     //被static和transient(瞬时)修饰过的变量不会被序列化
