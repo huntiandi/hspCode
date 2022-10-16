@@ -73,7 +73,7 @@ public class StreamTest {
     public void test3(){
         //映射
         List<String> lists = Arrays.asList("aa", "bb", "cc");
-        lists.stream().map(str -> str+"q").forEach(System.out::print);
+        lists.stream().flatMap(StreamTest::filterString).forEach(System.out::print);
         System.out.println();
 //        Stream<Character> characterStream = lists.stream().flatMap(str -> stringToStream(str));
         Stream<Character> characterStream = lists.stream().flatMap(StreamTest::stringToStream);
@@ -82,4 +82,13 @@ public class StreamTest {
         List<String> collect = lists.stream().filter(str -> str != "aa").collect(Collectors.toList());
         collect.forEach(System.out::print);
     }
+    public static Stream<Character> filterString(String str){
+        ArrayList<Character> list = new ArrayList<>();
+
+        for (char c : str.toCharArray()) {
+            list.add(c);
+        }
+        return list.stream();
+    }
+
 }
